@@ -11,11 +11,11 @@ const fetchuser=(req,res,next)=>{
     
 
     try{
-        const string=k=jwt.verify(token,JWT_SECRET);
+        const data=jwt.verify(token,JWT_SECRET);
         req.user=data.user;
         next();
     }catch(error){
-        res.status(401).send({error:"please authenticate using a valid token"});
+        res.status(401).send({error:"please authenticate"});
     }
 }
 
